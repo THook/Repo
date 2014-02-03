@@ -14,7 +14,8 @@ NAME	=	libft.a
 
 RM	=	/bin/rm
 
-SRC	=	./ft_putchar.c \
+SRC	=	./ft_putendl_fd.c \
+		./ft_putchar.c \
 		./ft_memset.c \
 		./ft_bzero.c \
 		./ft_memcpy.c \
