@@ -59,6 +59,10 @@ SRC	=	./ft_putchar.c \
 		./ft_striter.c \
 		./ft_striteri.c \
 		./get_next_line.c \
+		./ft_strdub.c \
+		./ft_ptrlen.c \
+		./ft_putchar_fd.c \
+		./ft_putstr_fd.c \
 		#./ft_strtrim.c \
 		 ft_itoa.c \
 		ft_lstadd.c \
