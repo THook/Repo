@@ -11,7 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
 static int		r_alloc(char **buf, int size)
 {
@@ -69,20 +72,3 @@ int				get_next_line(int fd, char **line)
 	return (0);
 }
 
-
-int				main(int ac, char **av)
-{
-	int		ret;
-	int		fd;
-	char	*line;
-
-	if (ac != 2)
-		return (0);
-	fd = open(av[1], O_RDONLY);
-	while ((ret = get_next_line(fd, &line)) > 0)
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-	return (0);
-}
