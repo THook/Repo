@@ -19,7 +19,7 @@ char	*ft_strnew(size_t size)
 	char		*s;
 
 	t = 1;
-	if ((s = (char *)malloc (sizeof (char) * (size + 1))) == 0)
+	if (!(s = (char *)malloc(sizeof(char) * (size + 1))))
 		return (0);
 	while (t <= size)
 	{
@@ -29,3 +29,4 @@ char	*ft_strnew(size_t size)
 	s[t] = '\0';
 	return (s);
 }
+
