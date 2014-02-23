@@ -10,22 +10,89 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "Libsh.h"
 #include <stdlib.h>
+#include <dirent.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-/*int				is_pipe(char *line)
+void				printtab(char **tab);
+
+int				is_pipe(char *line)
 {
 	int		i;
 
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '|' && line[i + 1]) // ? faire une sortie a -1 en le cas inverse pour que ls| ne rentre pas dans curse.
+		if (line[i] == '|' && line[i + 1])
 			return (1);
 		i++;
 	}
 	return (0);
-}*/
+}
+
+int				matches(char *name, char *line)
+{
+	int	i;
+	int	j;
+	int	k;
+	char	**tab;
+
+	i = j = k = 0;
+	if (!(tab = ft_strsplit(ft_strtrim(line), '*')))
+		return (1);
+	while (name[i] && tab[j])
+	{
+		
+		if (name[i] == tab[j][k])
+		{
+			while (name[i] == tab[j][k])
+			{
+				k++;
+				i++;
+			}
+			if (!(tab[j][k]))
+			{
+				j++;
+				k = 0;
+			}
+		}
+		else
+			i++;
+	}
+	if (!(tab[j]))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
+
+int				count_matches(char *line)
+{
+	DIR		*dir;
+	struct dirent	*cur;
+	int		i;
+	int		count;
+	int		ret;
+
+	count = 0;
+	i = 0;
+	if ((dir = opendir(".")) == 0)
+		exit(0);
+	while ((cur = readdir(dir)) > 0)
+	{
+		if ((ret = matches(cur->d_name, line)))
+			count = count + ret;
+	}
+	closedir(dir);
+	return (count);
+}
 
 static void			split_parts(char **tab, char **env)
 {
@@ -33,10 +100,20 @@ static void			split_parts(char **tab, char **env)
 
 	i = 0;
 	while (tab[i])
-		piper(ft_strtrim(tab[i++]), env);
+	{
+		//trim tou ça
+		if (is_wild(tab[i]))
+			main_card(tab[i++], env);
+		else if (is_script(tab[i]))
+			execute(tab[i++], env);
+		else if (is_pipe(tab[i]))
+			piper(ft_strtrim(tab[i++]), env);
+		else
+			curse(env, tab[i++]);
+	}
 }
 
-static void			parse(char *line, char **env)
+void			parse(char *line, char **env)
 {
 	char	**tab;
 

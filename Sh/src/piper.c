@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "Libsh.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/wait.h>
@@ -50,25 +50,24 @@ int					ft_pipe(char *line, char **env)
 	int					pid;
 
 	fd[1] = dup(1);
-	fd[0] = dup(0);
 	tmp = get_next(&line, '|');
 	if (ft_strlen(line) <= 0)
 	{
-		dup2(1, pfd[1]);
+		//dup2(1, pfd[1]);
 		close(pfd[1]);
-		ft_putstr_fd("a", 2);
+		close(fd[0]);
 		curse(env, tmp);
-		dup2(fd[0], pfd[0]);
 		close(pfd[0]);
-		return (0);
 	}
 	if (pipe(pfd) < 0)
 		exit(0);
+	if (ft_strlen(line) > 0)
+	{
 	if ((pid = fork()) > 0)
 	{
-		waitpid(pid, 0, 0);
-		close(pfd[1]);
 		dup2(pfd[0], 0);
+		close(pfd[1]);
+		waitpid(pid, 0, 0);
 	}
 	else
 	{
@@ -76,7 +75,9 @@ int					ft_pipe(char *line, char **env)
 		dup2(pfd[1], 1);
 		curse(env, tmp);
 	}
+	fd[0] = dup(0);
 	ft_pipe(line, env);
+	}
 	return (0);
 }
 
