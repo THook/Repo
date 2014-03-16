@@ -1,4 +1,2 @@
-ls
-pwd; ls -l
-toto
-ls *.c
+ls -l;
+sh t.sh

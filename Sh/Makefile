@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= minishell
+NAME	= shell
 
 SRC	=	./Libsh/ft_putchar.c \
 		./Libsh/ft_strlen.c \
