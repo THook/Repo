@@ -66,13 +66,14 @@ SRC	=	./ft_putchar.c \
 		./ft_putnbr.c \
 		./ft_ptrlen.c \
 		./ft_strsplit.c \
-		./free_tab.c
-		# ft_itoa.c \
-		ft_lstadd.c \
-		ft_lstdel.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
+		./free_tab.c \
+		./ft_lstadd.c \
+		./ft_lstdel.c \
+		./ft_lstdelone.c \
+		./ft_lstiter.c \
 		./ft_lstnew.c \
+		./ft_realloc.c
+		#./ft_lstmap.c \
 
 OBJ	=	$(SRC:.c=.o)
 
