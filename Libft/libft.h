@@ -79,7 +79,7 @@ void	ft_putendl_fr(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_ptrlen(char **tab);
 void	free_tab(char **tab);
-
+int		match(char *s1, char *s2);
 int		get_next_line(int fd, char **line);
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
