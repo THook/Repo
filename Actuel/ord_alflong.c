@@ -36,7 +36,6 @@ char		*dupdup(char *s, int n)
 	int		i;
 
 	i = 0;
-	printf("%d\n", n);
 	if (!(ret = (char *)malloc(sizeof(char) * (n + 1))))
 		return (NULL);
 	while (i < n)
@@ -45,7 +44,6 @@ char		*dupdup(char *s, int n)
 		i++;
 	}
 	ret[i] = '\0';
-	ft_putstr(ret);
 	return (ret);
 }
 
@@ -71,7 +69,6 @@ void		copy_str(char *str, t_struct *glob, int n)
 		new->next = glob->alf;
 	else
 		new->next = NULL;
-	ft_putstr(new->name);
 	glob->alf = new;
 }
 
@@ -84,15 +81,14 @@ void		get_struct(char *line, t_struct *glob)
 	while (line[i])
 	{
 		if (line[i] == '\t' || line[i] == ' ')
-			i++;
-		if (!is_nbr(line[i]))
+			;
+		else if (!is_nbr(line[i]))
 		{
 			j = i;
-			while (!is_nbr(line[j]))
+			while (!is_nbr(line[j]) && line[j] != '\0')
 				j++;
-			copy_str(&line[i], glob, i - j);
-			ft_putchar('a');
-			i = j;
+			copy_str(&line[i], glob, j - i);
+			i = j - 1;
 		}
 		i++;
 	}
@@ -126,11 +122,11 @@ void		ord_long(t_struct *glob)
 		{
 			while (tmp)
 			{
-				if (tmp->len > cur->len)
+				if (tmp->len < cur->len)
 				{
 					s = tmp->name;
 					tmp->name = cur->name;
-					cur->name = tmp->name;
+					cur->name = s;
 					i = tmp->len;
 					tmp->len = cur->len;
 					cur->len = i;
@@ -170,11 +166,11 @@ void		ord_cmp(t_struct *glob)
 		{
 			while (tmp && tmp->len == cur->len)
 			{
-				if (s_comp(cur->name, tmp->name) < 0)
+				if (s_comp(cur->name, tmp->name) > 0)
 				{
 					s = tmp->name;
 					tmp->name = cur->name;
-					cur->name = tmp->name;
+					cur->name = s;
 				}
 				tmp = tmp->next;
 			}
@@ -212,9 +208,7 @@ int			main(int ac, char **av)
 		return (0);
 	}
 	get_struct(av[1], new);
-	print_lst(new);
 	ord_long(new);
-	print_lst(new);
 	ord_cmp(new);
 	print_cmp(new);
 	return (0);
