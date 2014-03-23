@@ -28,13 +28,10 @@ void		make_tab(char *s, char *dir, int n)
 	closedir(ret);
 }
 
-void		card2(char *s, char *dir)
+void		card2(char *s, char *dir, DIR *ret)
 {
 	struct dirent	*file;
-	DIR				*ret;
 
-	if ((ret = opendir(dir)) == NULL)
-		return ;
 	if (ft_strchr(s, '*') != NULL)
 	{
 		while ((file = readdir(ret)) != NULL)
@@ -49,11 +46,10 @@ void		card2(char *s, char *dir)
 	closedir(ret);
 }
 
-void		card(char *s, char *dir)
+void		card(char *s, char *dir, DIR *ret)
 {
 	int				i;
 	struct dirent	*file;
-	DIR				*ret;
 
 	i = 0;
 	if (dir == NULL)
@@ -63,24 +59,24 @@ void		card(char *s, char *dir)
 	if (ft_strchr(s, '/') != NULL)
 	{
 		if (s[0] == '/')
-			return (card(s + 1, (dir = "/")));
+			return (card(s + 1, "/", ret));
 		}
 		while (s[i] != '/')
 			i++;
 		while ((file = readdir(ret)) != NULL)
 		{
 			if (match(file->d_name, ft_strsub(s, 0, i)) == 1)
-				return (card((s + i + 1), (dir = (file_d_name))));
+				return (card((s + i + 1), file_d_name, ret));
 		}
 	}
-	card2(s, dir);
+	card2(s, dir, ret);
 	closedir(ret);
 }
 
 int			main(int ac, char **av)
 {
 	if (ac)
-		card(av[1], av[2]);
+		card(av[1], av[2], NULL);
 	return (0);
 }
 
