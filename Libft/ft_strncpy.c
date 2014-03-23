@@ -11,23 +11,16 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 char	*ft_strncpy(char *s1, const char *s2, size_t n)
 {
-	char	*s;
+	size_t		i;
 
-	s = s1;
-	if (!s1 || !s2 || !n)
-		return (s1);
-	while (*s2 != '\0' && n > 0)
-	{
-		*s++ = *s2++;
-		n--;
-	}
-	while (n > 0)
-	{
-		*s++ = 0;
-		n--;
-	}
+	i = -1;
+	while (++i < n && s2[i])
+		s1[i] = s2[i];
+	ft_bzero((s1 + i), (n - i));
 	return (s1);
 }
+
