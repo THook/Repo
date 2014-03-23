@@ -94,19 +94,6 @@ void		get_struct(char *line, t_struct *glob)
 	}
 }
 
-void		print_lst(t_struct *glob)
-{
-	t_alf		*cur;
-
-	cur = glob->alf;
-	while (cur)
-	{
-		ft_putstr(cur->name);
-		ft_putchar('\n');
-		cur = cur->next;
-	}
-}
-
 void		ord_long(t_struct *glob)
 {
 	t_alf		*cur;
