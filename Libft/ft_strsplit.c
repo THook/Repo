@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/24 07:10:15 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/24 09:10:31 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/24 14:24:12 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char		**ft_strsplit(const char *s, char c)
 		{
 			if ((tmp = ft_strchr(s, c)) || (tmp = ft_strchr(s, '\0')))
 			{
-				if (!(tab[i++] = (char *)ft_memalloc((tmp - s) / sizeof(char))))
+				if (!(tab[i++] = (char *)ft_memalloc((tmp - s) / sizeof(char) + 1)))
 					return (NULL);
 				while (s != tmp)
 					tab[i - 1][j++] = *(s++);

@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 16:13:16 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/24 12:21:23 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/24 14:22:01 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	}
 	if (c == 0)
-		return (s);
+		return ((char *)s);
 	return (0);
 }
 
