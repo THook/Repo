@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/17 14:36:50 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/17 03:06:33 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/24 09:20:47 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int		r_alloc(char **buf, int size)
 	while (tmp[++i])
 		(*buf)[i] = tmp[i];
 	(*buf)[i] = '\0';
+	ft_memdel((void **)&tmp);
 	return (i);
 }
 

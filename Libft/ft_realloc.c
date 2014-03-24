@@ -1,29 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/03/24 07:53:57 by hvillain          #+#    #+#             */
+/*   Updated: 2014/03/24 09:20:20 by hvillain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void		*ft_realloc(void *ptr, size_t size)
+int			ft_realloc(void **ptr, size_t size)
 {
-	void		*new;
 	void		*tmp;
-	int			i;
+	void		*tmp2;
+	int			n;
 
-	i = -1;
-	if (!ptr)
-	{
-		if (!(new = ft_memalloc(sizeof(size))))
-			return (NULL);
-		return (new);
-	}
-	tmp = ptr;
-	if (!(ptr = ft_memalloc(sizeof(size))))
-		return (NULL);
-	while (tmp)
-	{
-		*ptr = *tmp;
-		tmp++;
-		ptr++;
-	}
-	return (ptr);
+	if (!(*ptr))
+		n = 1;
+	else
+		n = ft_strlen((*(char **)ptr));
+	tmp = *ptr;
+	if (!(*ptr = ft_memalloc(n + size + 1)))
+		return (-1);
+	tmp2 = *ptr;
+	while ((*(char *)tmp))
+		(*(char *)tmp2++) = (*(char *)tmp++);
+	ft_memdel((void **)&tmp);
+	return (ft_strlen(*ptr));
 }
 

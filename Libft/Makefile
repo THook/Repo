@@ -6,7 +6,7 @@
 #    By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/22 19:50:41 by hvillain          #+#    #+#              #
-#    Updated: 2014/03/15 17:11:23 by hvillain         ###   ########.fr        #
+#    Updated: 2014/03/24 09:09:05 by hvillain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,6 @@ SRC	=	./ft_putchar.c \
 		./ft_lstiter.c \
 		./ft_lstnew.c \
 		./ft_realloc.c
-		#./ft_lstmap.c \
 
 OBJ	=	$(SRC:.c=.o)
 

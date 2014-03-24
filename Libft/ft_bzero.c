@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 15:00:45 by hvillain          #+#    #+#             */
-/*   Updated: 2013/12/01 22:41:15 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/24 07:52:48 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void			ft_bzero(void *s, size_t n)
 {
-	unsigned char		*s2;
-
-
-	s2 = (unsigned char *) s;
 	while (n != 0)
 	{
 		*((char *) s++) = '\0';
 		n--;
 	}
 }
+
