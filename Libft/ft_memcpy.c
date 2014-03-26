@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 15:19:45 by hvillain          #+#    #+#             */
-/*   Updated: 2013/12/01 22:28:45 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/25 20:56:10 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,4 @@ void			*ft_memcpy(void *s1, const void *s2, size_t n)
 	}
 	return (((unsigned char *) s1) - n);
 }
+

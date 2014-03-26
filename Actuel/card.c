@@ -66,6 +66,8 @@ void		card(char *s, char *dir, DIR *ret)
 		while ((file = readdir(ret)) != NULL)
 		{
 			if (match(file->d_name, ft_strsub(s, 0, i)) == 1)
+			{
+				// opendir le dossier si cest un dossier
 				return (card((s + i + 1), file_d_name, ret));
 		}
 	}
