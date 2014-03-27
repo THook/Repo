@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 16:10:45 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/12 02:27:21 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:52:18 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 		return (s1);
 	if (s1 <= s2)
 		return (ft_memcpy(s1, s2, n));
-	dest = (char *) s1 + n;
-	src = (char *) s2 + n;
+	dest = (char *)s1 + n;
+	src = (char *)s2 + n;
 	while (n-- > 0)
 		*--dest = *--src;
 	return (dest);

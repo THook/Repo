@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/17 14:36:50 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/24 09:20:47 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 15:02:24 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int		get_part(char **buf, char **line)
 		i++;
 	if (tmp[i] != '\n')
 		return (0);
-	tmp[i] = '\0'; 
+	tmp[i] = '\0';
 	*line = ft_strdup(*buf);
 	*buf = ft_strdup(*buf + i + 1);
 	ft_memdel((void **)&tmp);
@@ -71,4 +71,3 @@ int				get_next_line(int fd, char **line)
 	ft_memdel((void **)&buf);
 	return (0);
 }
-

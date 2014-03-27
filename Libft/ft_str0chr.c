@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_str0chr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/18 02:54:51 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/27 15:01:43 by hvillain         ###   ########.fr       */
+/*   Created: 2014/03/27 15:10:34 by hvillain          #+#    #+#             */
+/*   Updated: 2014/03/27 17:45:53 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-char		*ft_strtrim(char const *s)
+char		*ft_str0chr(const char *s, int c)
 {
-	char	*str;
-	int		len;
-
 	if (!s)
 		return (NULL);
-	while (*s == ' ' || *s == '\n' || *s == '\t')
+	while (*(char *)s)
+	{
+		if (*(char *)s == (char)c)
+			return ((char *)s);
 		s++;
-	len = ft_strlen(s);
-	while (len-- > 0 && (s[len] == ' ' || s[len] == '\n' || s[len] == '\t'))
-		;
-	if (!(str = ft_strsub(s, 0, len + 1)))
-		return (NULL);
-	return (str);
+	}
+	return ((char *)s);
 }

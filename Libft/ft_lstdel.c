@@ -1,5 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/03/27 14:48:42 by hvillain          #+#    #+#             */
+/*   Updated: 2014/03/27 14:48:53 by hvillain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
@@ -15,4 +25,3 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 		cur = tmp;
 	}
 }
-

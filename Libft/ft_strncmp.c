@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 18:43:20 by hvillain          #+#    #+#             */
-/*   Updated: 2013/12/01 22:34:21 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:58:08 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 			i++;
 		}
 		else
-			return (((unsigned char *) s1)[i] - ((unsigned char *) s2)[i]);
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 	}
 	return (0);
 }

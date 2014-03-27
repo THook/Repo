@@ -6,11 +6,11 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 18:14:44 by hvillain          #+#    #+#             */
-/*   Updated: 2013/11/20 18:17:27 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:55:54 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "libft.h"
 
 void	ft_putstr(char const *s)
 {
