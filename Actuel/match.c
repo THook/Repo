@@ -6,9 +6,11 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 02:55:59 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/27 03:03:13 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 20:11:48 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int		only_wild(char *s)
 {
@@ -31,11 +33,10 @@ int		match(char *s1, char *s2)
 		return (match(s1, s2 + 1));
 	else if (*s2 == '*' && *(s2 + 1) == '*')
 		return (match(s1, s2 + 1));
-	else if (*s2 == '*' && *s1 != '\0' && *(s1 + 1) != '\0')
+	else if (*s2 == '*' && *s1 != '\0')
 	{
 		if (match(s1, s2 + 1) || match(s1 + 1, s2) || match(s1 + 1, s2 + 1))
 			return (1);
 	}
 	return (0);
 }
-

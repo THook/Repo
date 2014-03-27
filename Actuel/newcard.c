@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/26 21:04:27 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/27 19:48:49 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 20:01:23 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	card2(char *s, char *prev, int type, t_list *tokens)
 	if (!*s && type == 1)
 	{
 		if (prev[ft_strlen(prev) - 1] != '.' && end_point(prev))
-			ft_create_token(tokens, prev, 0);
+			ft_create_token(tokens, ft_strdup(prev), 0);
 		return ;
 	}
 	if ((ret = opendir(prev)) == NULL)
@@ -65,7 +65,7 @@ void	card2(char *s, char *prev, int type, t_list *tokens)
 	closedir(ret);
 }
 
-void	card(char *s, char *p, int type, tokens)
+void	card(char *s, char *p, int type, t_list *tokens)
 {
 	struct dirent	*f;
 	DIR				*ret;
