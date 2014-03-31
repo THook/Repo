@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/18 02:54:51 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/12 03:46:55 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 15:01:43 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ char		*ft_strtrim(char const *s)
 		return (NULL);
 	return (str);
 }
-

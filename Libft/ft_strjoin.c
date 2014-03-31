@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/28 19:12:01 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/26 21:43:54 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:57:26 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s3[i] = 0;
 	return (s3);
 }
-

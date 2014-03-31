@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 19:14:04 by hvillain          #+#    #+#             */
-/*   Updated: 2014/01/30 12:19:52 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:48:29 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int					ft_nbchar(int n)
 	return (i + 1);
 }
 
-static char						*ft_invnb(int n)
+static char					*ft_invnb(int n)
 {
 	char		*str;
 	int			i;
@@ -46,7 +46,7 @@ static char						*ft_invnb(int n)
 	return (str);
 }
 
-char							*ft_itoa(int n)
+char						*ft_itoa(int n)
 {
 	char		*str;
 	char		*strinv;

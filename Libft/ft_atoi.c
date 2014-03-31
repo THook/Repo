@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 16:48:31 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/12 03:42:02 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 15:05:26 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_atoi(const char *str)
 	i = 0;
 	nb = 0;
 	neg = 1;
-	while (str[i] == ' ' || !ft_isprint(((char *) str)[i]))
+	while (str[i] == ' ' || !ft_isprint(((char *)str)[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

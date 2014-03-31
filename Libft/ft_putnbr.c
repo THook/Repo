@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 18:17:52 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/12 06:31:31 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:55:11 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_putnbr(int n)
 {
-
 	if (n == -2147483648)
 		ft_putstr("-2147483648");
 	else if (n < 0 && (n = -n))
@@ -27,4 +26,3 @@ void	ft_putnbr(int n)
 	else
 		ft_putchar(n + '0');
 }
-

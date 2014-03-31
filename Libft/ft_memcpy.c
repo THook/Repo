@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 15:19:45 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/25 20:56:10 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/03/27 14:50:40 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ void			*ft_memcpy(void *s1, const void *s2, size_t n)
 	t = 1;
 	while (t <= n)
 	{
-		(*(unsigned char *) s1) = (*(unsigned char *) s2);
+		(*(unsigned char *)s1) = (*(unsigned char *)s2);
 		s1++;
 		s2++;
 		t++;
 	}
-	return (((unsigned char *) s1) - n);
+	return (((unsigned char *)s1) - n);
 }
-

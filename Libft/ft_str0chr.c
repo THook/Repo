@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_diam.h                                           :+:      :+:    :+:   */
+/*   ft_str0chr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/24 16:51:33 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/24 16:57:35 by hvillain         ###   ########.fr       */
+/*   Created: 2014/03/27 15:10:34 by hvillain          #+#    #+#             */
+/*   Updated: 2014/03/27 17:45:53 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		G_DIAM_H
-# define	G_DIAM_H
+#include <stdlib.h>
 
-typedef struct			s_art
+char		*ft_str0chr(const char *s, int c)
 {
-		char			*name;
-		int				db;
-		struct s_art	*next;
-}						t_art;
-
-typedef struct			s_struct
-{
-	t_art				*art;
-}						t_struct;
-
-# endif
-
+	if (!s)
+		return (NULL);
+	while (*(char *)s)
+	{
+		if (*(char *)s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	return ((char *)s);
+}
