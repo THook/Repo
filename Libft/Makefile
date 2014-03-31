@@ -6,7 +6,7 @@
 #    By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/22 19:50:41 by hvillain          #+#    #+#              #
-#    Updated: 2014/03/24 09:09:05 by hvillain         ###   ########.fr        #
+#    Updated: 2014/03/27 01:34:00 by hvillain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ SRC	=	./ft_putchar.c \
 		./ft_ptrlen.c \
 		./ft_strsplit.c \
 		./free_tab.c \
-		./ft_lstadd.c \
 		./ft_lstdel.c \
 		./ft_lstdelone.c \
 		./ft_lstiter.c \

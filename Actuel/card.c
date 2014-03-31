@@ -60,7 +60,6 @@ void		card(char *s, char *dir, DIR *ret)
 	{
 		if (s[0] == '/')
 			return (card(s + 1, "/", ret));
-		}
 		while (s[i] != '/')
 			i++;
 		while ((file = readdir(ret)) != NULL)
@@ -69,6 +68,7 @@ void		card(char *s, char *dir, DIR *ret)
 			{
 				// opendir le dossier si cest un dossier
 				return (card((s + i + 1), file_d_name, ret));
+			}
 		}
 	}
 	card2(s, dir, ret);
