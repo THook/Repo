@@ -9,14 +9,8 @@
 				echo "Syntax error\n";
 				break;
 			}
-			$tab[] = $str[0];
-			$tab1[] = $str[1];
+			$tab[$str[0]] = $str[1];
 		}
-		foreach ($tab as $key => $value) {
-			if ($value == $argv[1]){
-				echo $tab1[$key]."\n";
-				break;
-			}
-		}
+		echo $tab[$argv[1]]."\n";
 	}
 ?>
