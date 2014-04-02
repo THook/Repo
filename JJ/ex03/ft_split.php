@@ -2,6 +2,7 @@
 <?php
 	function ft_split($string){
 		$array = explode(' ', $string);
-		print_r(array_reverse($array));
+		sort($array);
+		return (array_filter($array));
 	}
 ?>

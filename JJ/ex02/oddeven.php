@@ -3,7 +3,7 @@
 	echo "Entrez un nombre: ";
 	while (($num = fgets(STDIN)) != NULL) {
 		$num = substr($num, 0, -1);
-		if (is_numeric($num)) {
+		if (ctype_digit($num)) {
 			if (($num % 2) == 0) {
 				echo "Le chiffre ".$num." est Pair\n";
 			}
