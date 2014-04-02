@@ -15,5 +15,5 @@
 		}
 		echo "Entrez un nombre: ";
 	}
-	echo "^D";
+	echo "^D\n";
 ?>
