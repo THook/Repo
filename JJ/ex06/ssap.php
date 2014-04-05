@@ -9,7 +9,6 @@
 				$final_tab[] = $value;
 			}
 		}
-		//$new_str = preg_split('/[\s ]+/', $str, -1, PREG_SPLIT_NO_EMPTY);
 		sort($final_tab);
 		foreach ($final_tab as $key => $value) {
 			echo $value."\n";

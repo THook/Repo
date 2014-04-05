@@ -1,15 +1,11 @@
 #!/usr/bin/php
 <?php
 	if ($argc > 1) {
-		//$new_str = preg_split('/[\s ]+/', $argv[1], -1, PREG_SPLIT_NO_EMPTY);
-
 		$str = $str.' '.$argv[1];
 		$new_str = explode(' ', $str);
-		foreach ($new_str as $key => $value) {
-			if ($value != '') {
+		foreach ($new_str as $key => $value)
+			if ($value != '')
 				$final_tab[] = $value;
-			}
-		}
 		$final_tab[] = $final_tab[0];
 		unset($final_tab[0]);
 		echo implode(' ', $final_tab)."\n";
