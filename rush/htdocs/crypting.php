@@ -9,4 +9,5 @@ if ($type == 1)
 	fwrite($handle, $user.";".$crypted.";read\n");
 else
 	fwrite($handle, $user.";".$crypted.";read&write\n");
+fclose($handle);
 ?>
