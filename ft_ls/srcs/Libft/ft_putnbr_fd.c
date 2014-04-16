@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/30 18:21:06 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/27 01:38:25 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/04/16 22:46:38 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
-

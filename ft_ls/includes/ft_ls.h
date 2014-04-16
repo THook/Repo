@@ -1,55 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/04/16 21:53:30 by hvillain          #+#    #+#             */
+/*   Updated: 2014/04/16 21:59:49 by hvillain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_LS_H
 # define FT_LS_H
-
-# include "libft.h"
 # include <sys/stat.h>
-# include <pwd.h>
-# include <grp.h>
-# define BUFF_SIZE 200
 
-typedef struct	s_options
+typedef struct			s_filelist
 {
-	int			l;
-	int			r;
-	int			R;
-	int			a;
-	int			t;
-}				t_options;
+	char				*dir;
+	char				*name;
+	mode_t				mode;
+	nlink_t				nlink;
+	uid_t				uid;
+	gid_t				gid;
+	struct timespec		lastmodif;
+	off_t				size;
+	struct s_filelist	*previous;
+	struct s_filelist	*next;
+}						t_filelist;
 
-typedef struct	s_file
+typedef struct			s_dirlist
 {
-	char		*name;
-}				t_file;
+	char				*name;
+	int					nodir;
+	int					scanned;
+	blkcnt_t			blocks;
+	struct timespec		lastmodif;
+	int					maxnlink;
+	int					maxsize;
+	int					maxuidlen;
+	int					maxgidlen;
+	struct s_filelist	*filelist;
+	struct s_dirlist	*previous;
+	struct s_dirlist	*next;
+}						t_dirlist;
 
-void	free_lst(void *d, size_t s);
-void	ls_options_init(t_options *options);
-int		ls_options_set(int ac, char **av, t_options *options);
-void	ls_error(char *path);
-void	ls_print(char *path, t_options *options);
-void	ls_recursion(char *path, t_list *entries, t_options *options);
-char	*ls_path(char *str);
-void	ls_print_short(t_list *entries, t_options *options);
-void	ls_print_long(t_list *entries, char *path, t_options *options);
-void	ls_print_long_counters
-			(t_list* entries, char *path, t_options *options, size_t *counts);
-void	ls_print_long_counters2
-			(size_t *counts, struct stat *s, struct passwd *p, struct group *g);
-void	ls_print_name(char *entry, char *path, struct stat *estat);
-void	ls_print_permissions(struct stat *estat);
-void	ls_print_user(uid_t uid, size_t length);
-void	ls_print_group(gid_t gid, size_t length);
-void	ls_print_time(char *str, struct stat *estat);
-void	ls_print_long_line(char *entry, char *path, size_t *counts);
-DIR		*ls_opendir(char *name);
-t_list	*ls_get_files(char *name, t_options *options);
-int		ls_closedir(DIR *dir);
-int		ls_sort_alpha(t_list *lst1, t_list *lst2);
-int		ls_sort_alpha_reverse(t_list *lst1, t_list *lst2);
-int		ls_sort_time(t_list *lst1, t_list *lst2);
-int		ls_sort_time_reverse(t_list *lst1, t_list *lst2);
-int		is_hidden(char *name);
-int		get_month_number(char *month);
-char	*get_full_name(char *path, char *name, int prefix);
-char 	*clean_path(char *path, int root_slash);
+typedef struct			s_params
+{
+	int					opt_l;
+	int					opt_rec;
+	int					opt_a;
+	int					opt_r;
+	int					opt_t;
+	int					newline;
+	t_dirlist			*dirlist;
+	t_filelist			*filelist;
+}						t_params;
+
+void			ft_printfile(t_dirlist *dir, t_filelist *file, t_params *params);
+void			handlerecur(t_filelist *file, t_params *params);
+void			ft_scandir(t_dirlist *file, t_params *params);
+void			ft_printdir(t_dirlist *dir, t_params *params);
+void			ft_printdirs(t_params *params);
+t_params		*ft_newparams(void);
+void			ft_addoption(t_params **params, char *option);
+t_params		*ft_getparams(int argc, char **argv);
+void			ft_uidspaces(t_dirlist *dir, t_filelist *file);
+int				ft_digits(int n);
+t_filelist		*ft_newfile(t_dirlist *dirlist, char *file);
+void			ft_addfile(t_dirlist *dirlist, char *file, t_params *param);
+void			ft_nlinkspaces(t_dirlist *dir, t_filelist *file);
+void			ft_sizespaces(t_dirlist *dir, t_filelist *file);
+void			ft_gidspaces(t_dirlist *dir, t_filelist *file);
+void			ft_nlinkspaces(t_dirlist *dir, t_filelist *file);
+void			ft_sizespaces(t_dirlist *dir, t_filelist *file);
+t_dirlist		*ft_newdir(char *dir, t_params *params);
+int				ft_dircmp(t_dirlist *dir, t_dirlist *dir2, t_params *param);
+t_dirlist		*ft_adddir(t_params *params, char *dir);
 
 #endif

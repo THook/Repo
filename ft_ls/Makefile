@@ -1,50 +1,48 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    make                                               :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amaurer <amaurer@student.42.fr>            +#+  +:+       +#+         #
+#    By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2013/11/19 13:13:41 by amaurer           #+#    #+#              #
-#    Updated: 2013/12/11 12:46:37 by amaurer          ###   ########.fr        #
+#    Created: 2014/04/16 22:24:24 by hvillain          #+#    #+#              #
+#    Updated: 2014/04/16 22:30:23 by hvillain         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
-NAME =	ft_ls
-SRC = 	main.c\
-		ls_option.c\
-		ls_dir_operation.c\
-		ls_print.c\
-		ls_free.c\
-		ls_print_short.c\
-		ls_print_long.c\
-		ls_print_long2.c\
-		ls_sort.c\
-		ls_error.c\
-		ls_util.c
-OBJ =	$(SRC:.c=.o)
-FLAG =	-Wall -Werror -Wextra
+NAME = ft_ls
 
-all: $(NAME)
+SRCS = srcs/main.c \
+	   srcs/params.c \
+	   srcs/ft_scandir.c \
+	   srcs/stack_functions.c \
+	   srcs/ft_printfile.c \
+	   srcs/spaces.c \
+	   srcs/stack_functions2.c
 
-$(NAME): makelibft
-	@echo "============ $(NAME) ============"
-	gcc $(FLAG) -o $(NAME) -Ilibft/includes -Llibft/ -lft -Ilibft $(SRC)
+OBJS =	$(SRCS:.c=.o)
+
+FLAGS =	-Wall -Wextra -Werror -g3
+
+LIBFT = ./srcs/Libft/libft.a
+
+all: $(LIBFT) $(NAME)
+
+%.o: %.c srcs/libft/libft.a
+	cc $(FLAGS) -o $@ -c $< -I ./includes
+
+$(NAME): $(LIBFT) $(OBJS)
+	cc $(FLAGS) -o $(NAME) $^ -I ./includes/
+
+$(LIBFT):
+	make -C ./srcs/Libft/ all
 
 clean:
-	@echo "============ clean ============"
-	make -C libft clean
-	rm -f $(OBJ)
+	/bin/rm -f $(OBJS)
+	make -C ./srcs/Libft/ clean
 
 fclean: clean
-	make -C libft fclean
-	rm -f $(NAME)
+	/bin/rm -f $(NAME)
+	make -C ./srcs/Libft/ fclean
 
 re: fclean all
-
-makelibft:
-	@echo "============ libft ============"
-	make -C libft
-
-c: re
-	./$(NAME)
