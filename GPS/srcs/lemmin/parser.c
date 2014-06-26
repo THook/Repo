@@ -6,7 +6,7 @@
 /*   By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/04 19:09:45 by hvillain          #+#    #+#             */
-/*   Updated: 2014/03/23 23:11:08 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/06/26 11:28:58 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		ft_parse_three(t_struct *glob, char *first)
 			add_to_list(line, glob);
 		i = 1;
 		if (line[0] == '#')
-			continue ;
+			;
 		else if (is_linking(line))
 		{
 			ft_memdel((void **)&line);
