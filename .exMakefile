@@ -6,20 +6,13 @@
 #    By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/12 09:11:04 by hvillain          #+#    #+#              #
-#    Updated: 2014/03/17 19:40:45 by hvillain         ###   ########.fr        #
+#    Updated: 2014/06/26 11:27:17 by hvillain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	lem-in
+NAME = MK
 
-SRCS =	./srcs/lemmin/get.c \
-		./srcs/lemmin/glob.c \
-		./srcs/lemmin/parser.c \
-		./srcs/lemmin/pipe.c \
-		./srcs/lemmin/tools.c \
-		./srcs/lemmin/resolve.c \
-		./srcs/lemmin/error_messages.c \
-		./srcs/lemmin/lets_lem.c
+SRCS = ex.c
 
 LIBFT =	./srcs/Libft/libft.a
 
