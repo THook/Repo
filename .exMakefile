@@ -6,13 +6,13 @@
 #    By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/03/12 09:11:04 by hvillain          #+#    #+#              #
-#    Updated: 2014/06/26 11:27:17 by hvillain         ###   ########.fr        #
+#    Updated: 2014/06/27 17:57:57 by hvillain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = MK
 
-SRCS = ex.c
+SRCS = exemple.c
 
 LIBFT =	./srcs/Libft/libft.a
 
