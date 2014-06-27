@@ -1,0 +1,20 @@
+Running more than one thread at the same time isn't about make them happen at the same time.
+It's about concurrency and constraint, to avoid any non-deterministic behaviour. 
+
+Atomocity, "all or nothing" semantics.
+Comes up particularly in a pessimistic assumption.
+You can't be interrupted in any operation if it's protected (read() flags e.g)
+
+Consistency, isolation, durability (check Wiki for that, /concurrency_control)
+
+Semaphores can be:
+Simple, versatile, error-prone(?).
+
+integer with three methods:
+initialize; wait() : decrement and block if negative; signal() : increment and wake a thread.
+
+No getter, integer can't be read because it would always be false (could).
+
+Scoreboard (r/w style, for multi reader, with some sort of conditional)
+Check for Turnstile 
+
