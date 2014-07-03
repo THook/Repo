@@ -6,9 +6,15 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:24:42 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 07:54:34 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 14:57:13 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "philo.h"
+#include <pthread.h>
+#include <unistd.h> // pour le write;
+#include <stdlib.h>
+#include <string.h>
 
 void		add_fork_list(t_fork *head, t_fork *elem)
 {
@@ -29,11 +35,11 @@ t_fork		*manage_fork_list(char *macro, t_fork *elem)
 {
 	static t_fork		*head;
 
-	if (macro == "add")
+	if (strcmp("add", macro))
 		add_fork_list(head, elem);
-	else if (macro == "set")
+	else if (strcmp("set", macro))
 		head = elem;
-	else if (macro == "get")
+	else if (strcmp("get", macro))
 		return (head);
 	else
 		write(1, "Error\n", 6);
@@ -45,6 +51,7 @@ int			create_fork(void)
 	t_fork				*new;
 	pthread_mutex_t		*mutex;
 
+	mutex = NULL;
 	if (!(new = (t_fork *)malloc(sizeof(t_fork))))
 		return (1);
 	pthread_mutex_init(mutex, NULL);
@@ -55,11 +62,11 @@ int			create_fork(void)
 	return (0);
 }
 
+/*
 void		print_fork(t_fork *elem)
 {
 	ft_printf("print_fork:\n");
 	ft_printf("fork: %p\n", elem);
 	ft_printf("fork->id: %d\n", elem->id);
-	ft_printf("fork->state: %d\n", elem->state);
 	return ;
-}
+}*/

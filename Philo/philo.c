@@ -6,9 +6,15 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 01:13:16 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 09:52:01 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 15:36:55 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "philo.h"
+#include <pthread.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 void		add_philo_list(t_philo *head, t_philo *elem)
 {
@@ -28,15 +34,15 @@ void		add_philo_list(t_philo *head, t_philo *elem)
 	}
 }
 
-t_fork		*manage_philo_list(char *macro, t_philo *elem) 
+t_philo		*manage_philo_list(char *macro, t_philo *elem) 
 {
 	static t_philo	*head;
 
-	if (macro == "add")
+	if (strcmp("add", macro))
 		add_philo_list(head, elem);
-	else if (macro == "get")
+	else if (strcmp("get", macro))
 		return (head);
-	else if (macro == "set")
+	else if (strcmp("set", macro))
 		head = elem;
 	else
 		write(1, "Wrong manage_philo_list\n", 24);
@@ -53,15 +59,17 @@ int			create_philo(void)
 	new->state = -1;
 	new->life = -1;
 	new->time = -1;
+	new->last_time = -1;
 	new->thread = NULL;
 	new->next = NULL;
 	new->prev = NULL;
-	new->f_left = NULL;
-	new->f_right = NULL;
+	new->fork_left = NULL;
+	new->fork_right = NULL;
 	manage_philo_list("add", new);
 	return (0);
 }
 
+/*
 void		print_philo(t_philo *elem)
 {
 	ft_printf("print_philo:\n");
@@ -69,4 +77,4 @@ void		print_philo(t_philo *elem)
 	ft_printf("philo->state: %d\n", elem->state);
 	ft_printf("philo->life: %d\n", elem->life);
 	return ;
-}
+}*/
