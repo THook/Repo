@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 01:13:16 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 17:00:14 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 18:38:14 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdio.h>
 
 void		add_philo_list(t_philo *head, t_philo *elem)
 {
@@ -69,12 +70,11 @@ int			create_philo(void)
 	return (0);
 }
 
-/*
 void		print_philo(t_philo *elem)
 {
-	ft_printf("print_philo:\n");
-	ft_printf("philo: %p\n", elem);
-	ft_printf("philo->state: %d\n", elem->state);
-	ft_printf("philo->life: %d\n", elem->life);
+	printf("print_philo:\n");
+	printf("philo: %p\n", elem);
+	printf("philo->state: %d\n", elem->state);
+	printf("philo->life: %d\n", elem->life);
 	return ;
-}*/
+}

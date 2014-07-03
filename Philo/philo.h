@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:44:01 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 17:00:15 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 18:38:18 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ t_philo		*manage_philo_list(char *macro, t_philo *elem);
 int			create_fork(void);
 int			create_philo(void);
 void		thread_init(void);
-
+void		print_philo(t_philo *elem);
+void		print_fork(t_fork *elem);
 #endif

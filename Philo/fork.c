@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:24:42 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 17:00:13 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 18:38:15 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h> // pour le write;
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 void		add_fork_list(t_fork *head, t_fork *elem)
 {
@@ -49,14 +50,13 @@ t_fork		*manage_fork_list(char *macro, t_fork *elem)
 int			create_fork(void)
 {
 	t_fork				*new;
-	pthread_mutex_t		*mutex;
+	pthread_mutex_t		mutex;
 
-	mutex = NULL;
 	if (!(new = (t_fork *)malloc(sizeof(t_fork))))
 		return (1);
-	pthread_mutex_init(mutex, NULL);
+	pthread_mutex_init(&mutex, NULL);
 	new->id = -1;
-	new->mutex = mutex;
+	new->mutex = &mutex;
 	new->next = NULL;
 	manage_fork_list("add", new);
 	return (0);
