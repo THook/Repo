@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:39:53 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 18:38:17 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 22:21:13 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	join_lists(void)
 	philo_head = p_head;
 	while (philo_head->next != p_head)
 	{
-		write(1, "c", 1);
 		philo_head->fork_left = fork_head->mutex;
 		philo_head->fork_right = fork_head->next->mutex;
 		philo_head = philo_head->next;
@@ -55,8 +54,6 @@ void	join_lists(void)
 int		main(void)
 {
 	int		i;
-	t_philo	*p_head;
-	//t_philo	*phil;
 
 	i = NBR_PHILO;
 	while (i--)
@@ -66,15 +63,8 @@ int		main(void)
 		if (create_philo())
 			return (1);
 	}
-	p_head = manage_philo_list("get", NULL);
-	print_philo(p_head);
-	/*while (p_head->next && p_head->next != phil)
-	{
-		print_philo(p_head);
-		p_head = p_head->next;
-	}*/
-	join_lists();
+	/*join_lists();
 	fill_lists();
 	thread_init();
-	return (0);
+	*/return (0);
 }

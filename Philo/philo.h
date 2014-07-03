@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:44:01 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 18:38:18 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 22:21:16 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 #include <pthread.h>
 #include <time.h>
 #include <stdlib.h>
-#include <pthread.h>
 
 #define		MAX_LIFE	10
 #define		THINK_T		3
 #define		EAT_T		2
-#define		NBR_PHILO	7
+#define		NBR_PHILO	14
 #define		REST_T		2
 #define		COMMUNITY	0
 
@@ -52,9 +51,6 @@ typedef struct			s_philo
 	int					last_time;
 }						t_philo;
 
-
-
-
 t_fork		*manage_fork_list(char *macro, t_fork *elem);
 t_philo		*manage_philo_list(char *macro, t_philo *elem); 
 int			create_fork(void);
@@ -62,4 +58,5 @@ int			create_philo(void);
 void		thread_init(void);
 void		print_philo(t_philo *elem);
 void		print_fork(t_fork *elem);
+
 #endif

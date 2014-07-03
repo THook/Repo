@@ -6,18 +6,30 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 01:13:16 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 18:38:14 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 22:21:14 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <pthread.h>
-#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <stdio.h>
 
-void		add_philo_list(t_philo *head, t_philo *elem)
+int			ft_strcmp(char *s1, char *s2)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] != 0 || s2[i] != 0)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		else
+			i++;
+	}
+	return (0);
+}
+
+t_philo		*add_philo_list(t_philo *head, t_philo *elem)
 {
 	t_philo		*tmp;
 
@@ -33,18 +45,17 @@ void		add_philo_list(t_philo *head, t_philo *elem)
 		elem->prev = tmp;
 		head->prev = elem;
 	}
+	return (head);
 }
 
 t_philo		*manage_philo_list(char *macro, t_philo *elem) 
 {
 	static t_philo	*head;
 
-	if (strcmp("add", macro))
-		add_philo_list(head, elem);
-	else if (strcmp("get", macro))
+	if (!strcmp("add", macro))
+		head = add_philo_list(head, elem);
+	else if (!strcmp("get", macro))
 		return (head);
-	else if (strcmp("set", macro))
-		head = elem;
 	else
 		write(1, "Wrong manage_philo_list\n", 24);
 	return (NULL);
@@ -72,9 +83,10 @@ int			create_philo(void)
 
 void		print_philo(t_philo *elem)
 {
-	printf("print_philo:\n");
-	printf("philo: %p\n", elem);
-	printf("philo->state: %d\n", elem->state);
+	(void)elem;
+//	printf("print_philo:\n");
+//	printf("philo: %p\n", elem);
+/*	printf("philo->state: %d\n", elem->state);
 	printf("philo->life: %d\n", elem->life);
-	return ;
+	*/return ;
 }
