@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:44:01 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 07:54:35 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 09:49:16 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct			s_philo
 	pthread_mutex_t		*fork_right;
 	int					previous_state;
 	int					id;
+	pthread_t			*thread;
 	int					state;
 	int					life;
 	int					time;

@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 01:13:16 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 07:54:36 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/03 09:52:01 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int			create_philo(void)
 	new->state = -1;
 	new->life = -1;
 	new->time = -1;
+	new->thread = NULL;
 	new->next = NULL;
 	new->prev = NULL;
 	new->f_left = NULL;
