@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:44:01 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/03 22:21:16 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/04 17:09:52 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define		MAX_LIFE	10
 #define		THINK_T		3
 #define		EAT_T		2
-#define		NBR_PHILO	14
+#define		NBR_PHILO	10
 #define		REST_T		2
 #define		COMMUNITY	0
 
