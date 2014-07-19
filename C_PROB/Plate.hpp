@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/19 06:46:47 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/19 12:19:36 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/19 12:28:29 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include <vector>
 #include <iostream>
 #include <cstdio>
+
+//commenter les lignes  a  enleve tout segfault
+//et la map saffiche correctement.
+//non commentees, ces lignes creent un segfault a la ligne this->map = test
 
 class	Plate
 {
