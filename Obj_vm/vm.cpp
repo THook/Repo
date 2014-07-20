@@ -6,21 +6,13 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/19 04:43:20 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/20 00:26:37 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/20 21:27:30 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include "Plate.hpp"
-#include "Game.hpp"
-#include "Turn.hpp"
-#include "Piece.hpp"
-#include <stdio.h>
-
 using namespace std;
+
+#include "game.h"
 
 // add turn to Game class
 void	printing(Game *game, Plate *map, int turn)
@@ -67,16 +59,10 @@ void	resolve(Game *game, Plate *map)
 
 int		main(int ac, char **av)
 {
-	ifstream		main;
-	string			line;
-	vector<string>	map;
-	Game			*game = new Game();
-	
-	(void)ac;
-	main.open(av[1]);
-	while (getline(main, line))
-		map.push_back((const string)(line));
-	Plate *mappy = new Plate(map);
-	resolve(game, mappy);
+	//if (ac == 5)
+	Game	*game = new Game((const char *)av[1]);
+
+	(void)game;
+	(void)ac;	
 	return 0;
 }

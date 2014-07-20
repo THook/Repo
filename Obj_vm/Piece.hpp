@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/19 16:28:56 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/20 00:27:15 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/20 17:38:44 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class	Piece
 		this->piece3.push_back("**....");
 		this->piece3.push_back("*.....");
 	}
+
 	void				get_piece(void)
 	{
 		if (this->randomizer == -1)

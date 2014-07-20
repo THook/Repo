@@ -6,17 +6,11 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/19 06:46:47 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/19 23:20:27 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/20 21:24:52 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Plate.hpp
-
-#include <string>
-#include <vector>
-#include <iostream>
-#include <cstdio>
-
 class	Plate
 {
 	int							size_x;
@@ -40,12 +34,6 @@ class	Plate
 		this->size_x = i;
 		this->map = map;
 	}
-
-/*	int		over(void)
-	{
-		if (!verification_end_of_game()) // private function
-			return (0);
-	}*/
 
 	void	print(void)
 	{
