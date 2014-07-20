@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/03 04:39:53 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/04 17:09:53 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/05 15:49:49 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int		main(void)
 	join_lists();
 	fill_o_phils();
 	// test id mutex
-	thread_init();
+//	thread_init();
 	return (0);
 }
