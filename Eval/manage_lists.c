@@ -6,12 +6,13 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/24 03:03:05 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/24 03:14:28 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/25 01:08:34 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "eval.h"
 
-static t_list		*create_elem(char *data)
+t_list			*create_elem(char *data)
 {
 	t_list		*new;
 
@@ -28,11 +29,11 @@ static t_list		*create_elem(char *data)
 		new->id = 2;
 	else if (data[0] == '-' || data[0] == '+')
 		new->id = 3;
-	else new->id = -1;
+	//else new->id = -1;
 	return (new);
 }
 
-static void			add_elem(t_list const *new, t_list const *begin)
+t_list				*add_elem(char *data,  t_list *begin)
 {
 	t_list			*rem;
 	t_list			*new;
@@ -53,17 +54,18 @@ static void			add_elem(t_list const *new, t_list const *begin)
 		new->next = begin;
 		begin->prev = new;
 	}
+	return (begin);
 }
 
-static t_list		*manage_list(char *cmd, char *data, t_list *elem)
+t_list				*manage_list(char *cmd, char *data, t_list *elem)
 {
-	static t_list	*begin;
-	t_list			*new;
+	static t_list	*begin = NULL;
 	t_list			*rem;
 	int				start = 1;
 
+	(void)data;
 	if (!ft_strcmp(cmd, "add"))
-		add_elem(begin);
+		begin = add_elem(data, begin);
 	else if (!ft_strcmp(cmd, "set"))
 		begin = elem;
 	else if (!ft_strcmp(cmd, "print"))
@@ -76,6 +78,8 @@ static t_list		*manage_list(char *cmd, char *data, t_list *elem)
 			rem = rem->next;
 		}
 	}
+	else if (!ft_strcmp(cmd, "set_begin"))
+		begin = elem;
 	else if (!ft_strcmp(cmd, "get"))
 		return (begin);
 	else if (!ft_strcmp(cmd, "delete"))
@@ -86,6 +90,6 @@ static t_list		*manage_list(char *cmd, char *data, t_list *elem)
 t_list				*manage_lists(int type, char *cmd, char *data, t_list *elem)
 {
 	if (!type)
-		return (manage_list(type, cmd, data, elem));
-	return (manage_parent(type, cmd, data, elem));
+		return (manage_list(cmd, data, elem));
+	return (manage_parent(cmd, data, elem));
 }

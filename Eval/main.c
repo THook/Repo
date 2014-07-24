@@ -6,20 +6,20 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/23 17:43:10 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/24 03:02:12 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/24 22:17:12 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eval.h"
 
-char	*ft_str0chr(char *line)
+char			*ft_str0chr(char *line)
 {
 	while (*line && *line <= '9' && *line >= '0')
 		line++;
 	return (line);
 }
 
-char	*ft_strsub(char *s, int start, int len)
+char			*ft_strsub(char *s, int start, int len)
 {
 	char		*s1;
 	int			i;
@@ -35,9 +35,9 @@ char	*ft_strsub(char *s, int start, int len)
 	return (s1);
 }
 
-void	ft_strsplit_ints(char *line)
+void			ft_strsplit_ints(char *line)
 {
-	char	*next;
+	char		*next;
 
 	while (*line)
 	{
@@ -60,7 +60,7 @@ void	ft_strsplit_ints(char *line)
 static int		ft_check_operand(t_list *elem, int priority)
 {
 	t_list		*rem;
-	int			start = 0;
+	int			start = 1;
 
 	rem = elem;
 	while (start || rem != elem)
@@ -73,45 +73,43 @@ static int		ft_check_operand(t_list *elem, int priority)
 	return (0);
 }
 
-int		resolve(void)
+char			*resolve(int type)
 {
 	t_list		*elem, *begin;
-	int			priority = 0;
+	int			priority = 1;
 
-	begin = manage_lists(0, "get", NULL, NULL);
+	begin = manage_lists(type, "get", NULL, NULL);
 	elem = begin;
 	while (elem != elem->next)
 	{
-		if (!ft_check_operand(manage_lists(0, "get", NULL, NULL), priority))
+		if (!ft_check_operand(manage_lists(type, "get", NULL, NULL), priority))
 			priority++;
-		if (!ft_strcmp(elem->data, "("))
-		{
-			manage_lists(1, "set", NULL, elem);
-			elem = manage_lists(1, "get", NULL, NULL);
-			manage_lists(1, "reset", resolve_parent(), NULL);
-		}
-		else if (elem->id==priority && elem->next != manage_lists(0, "get", NULL, NULL))
+		else if (elem->id==priority && elem->id > 1 && elem->next != manage_lists(type, "get", NULL, NULL))
 		{
 			operate(elem);
 			elem = manage_lists(0, "get", NULL, NULL);
 		}
+		if (!ft_strcmp(elem->data, "("))
+		{
+			manage_lists(1, "set", NULL, elem);
+			manage_lists(1, "reset", resolve(1), NULL);
+			elem = manage_lists(0, "get", NULL, NULL);
+		}
 		elem = elem->next;
 	}
-	return (atoi(elem->data));
+	return (elem->data);
 }
 
 int		main(int ac, char **av)
 {
-	int		ret;
+	char	*ret;
 
-	ret = 1;
-	(void)ret;
 	if (ac == 2)
 	{
 		ft_strsplit_ints(av[1]);
-		ret = resolve("get");
+		ret = resolve(0);
 		//manage_list("delete", NULL);
-		printf("RESULTAT: %d\n", ret);
+		printf("RESULTAT: %d\n", atoi(ret));
 	}
 	return (0);
 }
