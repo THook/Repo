@@ -6,11 +6,16 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/19 06:46:25 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/20 21:24:33 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/20 21:38:56 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Game.hpp
+
+#include "Plate.hpp"
+#include "Game.hpp"
+#include "Turn.hpp"
+#include "Piece.hpp"
 
 using namespace std;
 
