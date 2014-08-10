@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/24 03:03:05 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/25 01:08:34 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/25 01:21:38 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_list				*manage_list(char *cmd, char *data, t_list *elem)
 {
 	static t_list	*begin = NULL;
 	t_list			*rem;
-	int				start = 1;
+	//int				start = 1;
 
 	(void)data;
 	if (!ft_strcmp(cmd, "add"))
@@ -71,9 +71,16 @@ t_list				*manage_list(char *cmd, char *data, t_list *elem)
 	else if (!ft_strcmp(cmd, "print"))
 	{
 		rem = begin;
+		/*
 		while (start || rem != begin)
 		{
 			start = 0;
+			printf("%s\n", rem->data);
+			rem = rem->next;
+		}
+		*/
+		while (rem->next)
+		{
 			printf("%s\n", rem->data);
 			rem = rem->next;
 		}

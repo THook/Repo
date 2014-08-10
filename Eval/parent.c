@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/24 00:46:20 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/25 01:10:15 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/25 01:21:33 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ t_list		*manage_parent(char *cmd, char *data, t_list *elem)
 				rem = rem->next;
 		}
 		lost->prev = NULL;
-		begin->prev->prev->next = NULL;
-		rem->next = begin;
+		begin->prev->next = NULL;
+		rem->prev->next = begin;
 		if (elem == manage_list("get", NULL, NULL))
 			manage_list("set_begin", NULL, begin);
 
-		if (i)
+		if (!i)
 		{
 			manage_list("print", NULL, NULL);
 			printf("\n");

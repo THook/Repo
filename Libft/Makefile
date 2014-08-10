@@ -6,7 +6,7 @@
 #    By: hvillain <hvillain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/22 19:50:41 by hvillain          #+#    #+#              #
-#    Updated: 2014/03/27 01:34:00 by hvillain         ###   ########.fr        #
+#    Updated: 2014/08/10 17:40:25 by hvillain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,9 @@ SRC	=	./ft_putchar.c \
 		./ft_lstdelone.c \
 		./ft_lstiter.c \
 		./ft_lstnew.c \
-		./ft_realloc.c
+		./ft_realloc.c \
+		./ft_putbit.c \
+		./ft_bitwrite.c
 
 OBJ	=	$(SRC:.c=.o)
 

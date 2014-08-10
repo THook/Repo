@@ -6,7 +6,7 @@
 /*   By: hvillain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/23 17:43:10 by hvillain          #+#    #+#             */
-/*   Updated: 2014/07/24 22:17:12 by hvillain         ###   ########.fr       */
+/*   Updated: 2014/07/25 17:27:50 by hvillain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,23 @@ char			*resolve(int type)
 	elem = begin;
 	while (elem != elem->next)
 	{
+		if (type)
+			write(1, "sas\n", 4);
 		if (!ft_check_operand(manage_lists(type, "get", NULL, NULL), priority))
 			priority++;
-		else if (elem->id==priority && elem->id > 1 && elem->next != manage_lists(type, "get", NULL, NULL))
+		else if (elem->id==priority) // useless && elem->next != manage_lists(type, "get", NULL, NULL))
 		{
 			operate(elem);
 			elem = manage_lists(0, "get", NULL, NULL);
 		}
-		if (!ft_strcmp(elem->data, "("))
+		else if (!ft_strcmp(elem->data, "("))
 		{
 			manage_lists(1, "set", NULL, elem);
-			manage_lists(1, "reset", resolve(1), NULL);
+			char *test = resolve(1);
+			write(1, "s", 1);
+			printf("1%s\n", test);
+			//write(1, "a", 1);
+			//manage_lists(1, "reset", resolve(1), NULL);
 			elem = manage_lists(0, "get", NULL, NULL);
 		}
 		elem = elem->next;
